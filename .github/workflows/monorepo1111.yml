@@ -62,9 +62,10 @@ jobs:
           JOB_NAME: ${{ github.job }}
           REPO_NAME: ${{ github.repository }}
           WORKFLOW_NAME: ${{ github.workflow }}
-          COMPONLY_BACKEND_URL: https://d9fb-154-246-96-234.ngrok-free.app
+          COMPONLY_BACKEND_URL: https://e43a-154-246-227-84.ngrok-free.app
+          COMPONLY_CLI_ENV: development
         run: |
           ls -a 
           cd  ${{ matrix.workspaces }}   
-          npx componly scan -cliid=${{secrets.COMPONLY_API_KEY}} -clipwd="${{secrets.COMPONLY_API_SECRET}}" --config-path ./   --project  ./
+          npx componly scan --cli-id=${{secrets.COMPONLY_API_KEY}} --cli-password="${{secrets.COMPONLY_API_SECRET}}" --config-path ./   --project  ./
 
